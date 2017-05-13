@@ -1,20 +1,21 @@
 import React, {Component} from 'react'
 import {
-    StyleSheet,
-    View,
     Text,
-    Image
 } from 'react-native';
 import { StackNavigator, TabNavigator, TabBarBottom } from 'react-navigation';
 import TabBarItem from './widget/TabBarItem';
+import  ListView from  './screen/List/ListView';
 class Demo extends Component {
+    static navigationOptions = ({ navigation }) => ({
+        header:null,
+    })
     render() {
         return <Text>List of all contacts</Text>
     }
 }
 export default class Index extends Component{
  render(){
-     return (<Tab />);
+     return (<Navigator />);
  }
 }
 
@@ -49,7 +50,7 @@ const  Tab = TabNavigator(
             }),
         },
         List:{
-            screen:Demo,
+            screen:ListView,
             navigationOptions: ({ navigation }) => ({
                 tabBarLabel: '列表',
                 tabBarIcon: ({ focused, tintColor }) => (
@@ -104,3 +105,8 @@ const  Tab = TabNavigator(
         initialRouteName:'List',
     }
 )
+const Navigator = StackNavigator(
+    {
+        Tab: { screen: Tab },
+    }
+);
