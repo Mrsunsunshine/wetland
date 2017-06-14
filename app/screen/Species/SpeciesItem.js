@@ -3,7 +3,7 @@ import {  StyleSheet, Image, TouchableOpacity,Text,View } from 'react-native';
 
 import { screen} from '../../common/screen'
 
-export default  class ListItem extends Component {
+export default  class SpeciesItem extends Component {
     render() {
         return (
             <TouchableOpacity style={styles.container}

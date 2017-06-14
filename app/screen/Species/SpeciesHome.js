@@ -7,10 +7,10 @@ import {
     View,
     FlatList
 } from 'react-native';
-import ListItem from  './ListItem';
+import SpeciesItem from  './SpeciesItem';
 import { screen} from '../../common/screen'
 import NavigationItem from '../../widget/NavigationItem';
-export default class ListView extends Component {
+export default class SpeciesHome extends Component {
     static navigationOptions = ({ navigation }) => ({
         headerTitle: (
             <TouchableOpacity style={styles.searchBar}>
@@ -19,14 +19,14 @@ export default class ListView extends Component {
         ),
         headerRight: (
             <NavigationItem
-                title='筛选'
+                title='搜索'
                 titleStyle={{ color: 'white' }}
                 onPress={() => {}}>
             </NavigationItem>
         ),
         headerLeft:(
             <NavigationItem
-                title='搜索'
+                title='筛选'
                 titleStyle={{ color: 'white' }}
                 onPress={() => {}}>
             </NavigationItem>
@@ -41,10 +41,10 @@ export default class ListView extends Component {
         return (
             <FlatList
                 style={{marginTop:5}}
-            horizontal={false}
-            numColumns={2}
-            data = {dataArray}
-            renderItem={({item}) => (<ListItem icon={require('../../img/list/test.jpg')} title='叉尾太阳鸟'></ListItem>)}
+                horizontal={false}
+                numColumns={2}
+                data = {dataArray}
+                renderItem={({item}) => (<SpeciesItem icon={require('../../img/list/test.jpg')} title='叉尾太阳鸟'></SpeciesItem>)}
         />);
     }
 }

@@ -4,7 +4,9 @@ import {
 } from 'react-native';
 import { StackNavigator, TabNavigator, TabBarBottom } from 'react-navigation';
 import TabBarItem from './widget/TabBarItem';
-import  ListView from  './screen/List/ListView';
+import  SpeciesHome from  './screen/Species/SpeciesHome';
+import  Map from  './screen/Map/Map';
+
 class Demo extends Component {
     static navigationOptions = ({ navigation }) => ({
         header:null,
@@ -36,7 +38,7 @@ const  Tab = TabNavigator(
             }),
         },
         Map: {
-            screen:Demo,
+            screen:Map,
             navigationOptions: ({ navigation }) => ({
                 tabBarLabel: '地图',
                 tabBarIcon: ({ focused, tintColor }) => (
@@ -50,7 +52,7 @@ const  Tab = TabNavigator(
             }),
         },
         List:{
-            screen:ListView,
+            screen:SpeciesHome,
             navigationOptions: ({ navigation }) => ({
                 tabBarLabel: '列表',
                 tabBarIcon: ({ focused, tintColor }) => (
@@ -94,13 +96,15 @@ const  Tab = TabNavigator(
     }, {
         tabBarComponent: TabBarBottom,
         tabBarPosition:'bottom',
-        swipeEnabled: true,
-        animationEnabled: false,
+        swipeEnabled: false,
+        animationEnabled: true,
         lazy: true,
         tabBarOptions: {
             activeTintColor: '#06C1AE',
             inactiveTintColor: '#979797',
             style: { backgroundColor: '#ffffff' },
+            showLabel: true,
+            showIcon:true,
         },
         initialRouteName:'List',
     }
